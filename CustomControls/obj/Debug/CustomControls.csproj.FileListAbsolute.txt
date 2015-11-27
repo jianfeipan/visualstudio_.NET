@@ -1,0 +1,62 @@
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\bin\Debug\CustomControls.dll
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\bin\Debug\CustomControls.pdb
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\ColorPickerUserControl.baml
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\Themes\Generic.baml
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\ColorPickerUserControl.g.cs
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\CustomControls_MarkupCompile.cache
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\CustomControls_MarkupCompile.lref
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\Themes\ColorPicker.baml
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\CustomControls.g.resources
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\CustomControls.Properties.Resources.resources
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\CustomControls.dll
+C:\Users\ameguenn\Desktop\mai2010\20052010\ColorPicker\CustomControls\obj\Debug\CustomControls.pdb
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\bin\Debug\CustomControls.dll
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\bin\Debug\CustomControls.pdb
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\ColorPickerUserControl.baml
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\Themes\Generic.baml
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\ColorPickerUserControl.g.cs
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\CustomControls_MarkupCompile.cache
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\CustomControls_MarkupCompile.lref
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\Themes\ColorPicker.baml
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\CustomControls.g.resources
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\CustomControls.Properties.Resources.resources
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\CustomControls.dll
+C:\Users\ameguenn\Desktop\mai2010\22052010\ColorPicker\CustomControls\obj\Debug\CustomControls.pdb
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\bin\Debug\CustomControls.dll
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\bin\Debug\CustomControls.pdb
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\CustomControls.csprojResolveAssemblyReference.cache
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\ColorPickerUserControl.baml
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\Themes\Generic.baml
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\ColorPickerUserControl.g.cs
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\CustomControls_MarkupCompile.cache
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\CustomControls_MarkupCompile.lref
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\Themes\ColorPicker.baml
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\CustomControls.g.resources
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\CustomControls.Properties.Resources.resources
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\CustomControls.csproj.GenerateResource.Cache
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\CustomControls.dll
+C:\DAN\Cours\DocNet\BON_ALCARAC\CodeTrans\XAML\animation_avec_slider_PB\ColorPicker - Copie\CustomControls\obj\Debug\CustomControls.pdb
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\bin\Debug\CustomControls.dll
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\bin\Debug\CustomControls.pdb
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\CustomControls.csprojResolveAssemblyReference.cache
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\ColorPickerUserControl.baml
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\Themes\Generic.baml
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\ColorPickerUserControl.g.cs
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\CustomControls_MarkupCompile.cache
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\CustomControls_MarkupCompile.lref
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\Themes\ColorPicker.baml
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\CustomControls.g.resources
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\CustomControls.Properties.Resources.resources
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\CustomControls.csproj.GenerateResource.Cache
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\CustomControls.dll
+\\campus.enst-bretagne.fr\homes\jpan01\Visual Studio 2015\Projects\CustomControls\obj\Debug\CustomControls.pdb
