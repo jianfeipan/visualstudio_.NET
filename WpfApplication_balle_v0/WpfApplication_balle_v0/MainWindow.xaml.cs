@@ -27,17 +27,22 @@ namespace WpfApplication_balle_v0
     public partial class MainWindow : Window
     {
         Storyboard board;
+        Storyboard rotation;
         MyColorPicker colorPicker;
         double speedRadio = 1;
+        int currentshap = 0;//0:ball, 1:retangle
         public MainWindow()
         {
             InitializeComponent();
             board = (Storyboard)mainGrid.FindResource("animations");
+            rotation = (Storyboard)mainGrid.FindResource("rotationAnimation");
+            myRetangle.Visibility = Visibility.Hidden;
         }
 
 
         public void MenuItemStart_Click(object Sender, EventArgs e)
         {
+            rotation.Begin(this, true);
             board.Begin(this, true);
         }
         public void MenuItemStop_Click(object Sender, EventArgs e) {
@@ -48,7 +53,7 @@ namespace WpfApplication_balle_v0
             ColorDialog cd = new ColorDialog();
             if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
                 System.Drawing.Color color = cd.Color;             
-                board.Children[0].SetValue(ColorAnimation.ToProperty, System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B));
+                board.Children[currentshap].SetValue(ColorAnimation.ToProperty, System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B));
             }
             board.Begin(this, true);
             board.SetSpeedRatio(this, speedRadio);
@@ -57,7 +62,7 @@ namespace WpfApplication_balle_v0
         public void MenuItemColorPicker_click(object Sender, EventArgs e) {
             colorPicker = new MyColorPicker((Color)board.Children[0].GetValue(ColorAnimation.ToProperty));
             if (colorPicker.ShowDialog() == true){
-                board.Children[0].SetValue(ColorAnimation.ToProperty, colorPicker.colorPicker.Color);
+                board.Children[currentshap].SetValue(ColorAnimation.ToProperty, colorPicker.colorPicker.Color);
                 board.Begin(this, true);
                 board.SetSpeedRatio(this, speedRadio);
             }           
@@ -68,20 +73,53 @@ namespace WpfApplication_balle_v0
         }
 
         public void SpeedSlow_click(object Sender, EventArgs e) {
-            board.SetSpeedRatio(this, 0.3);
             speedRadio = 0.3;
+            changeAnimationSpeed(speedRadio);
         }
         public void SpeedNormal_click(object Sender, EventArgs e)
         {
-            board.SetSpeedRatio(this, 1);
             speedRadio = 1;
+            changeAnimationSpeed(speedRadio);
+
         }
 
         public void SpeedFast_click(object Sender, EventArgs e)
         {
-            board.SetSpeedRatio(this, 3);
             speedRadio = 3;
+            changeAnimationSpeed(speedRadio);
+            
         }
+
+        private void changeAnimationSpeed(double speed)
+        {
+            rotation.SetSpeedRatio(this, speed);
+            board.SetSpeedRatio(this, speed);
+        }
+
+        public void FormBall_click(object Sender, EventArgs e) {
+            if (currentshap != 0)
+            {
+                currentshap = 0;
+                myEllipse.Visibility = Visibility.Visible;
+                myRetangle.Visibility = Visibility.Hidden;
+            }
+        }
+
+        public void FormRetang_click(object Sender, EventArgs e){
+            if (currentshap != 1)
+            {
+                currentshap = 1;
+                myEllipse.Visibility = Visibility.Hidden;
+                myRetangle.Visibility = Visibility.Visible;
+            }
+        }
+
+        public void sliderspeed_mousedown(object Sender, EventArgs e)
+        {
+            speedRadio = speedSlider.Value;
+            changeAnimationSpeed(speedRadio);
+        }
+       
 
     }
 }

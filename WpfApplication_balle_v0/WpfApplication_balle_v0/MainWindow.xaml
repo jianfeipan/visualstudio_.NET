@@ -11,7 +11,9 @@
     <Grid x:Name="mainGrid">
         <Grid.Resources>
             <Storyboard x:Key="animations" x:Name="animsations"  RepeatBehavior="Forever" AutoReverse="True" >
-                <ColorAnimation x:Name="colorAnim" Storyboard.TargetName="ballColorBrush"
+                <ColorAnimation x:Name="colorAnimBall" Storyboard.TargetName="ballColorBrush"
+					Storyboard.TargetProperty="Color" From="Red" To="SkyBlue" Duration="00:00:01"/>
+                <ColorAnimation x:Name="colorAnimRetang" Storyboard.TargetName="rectangleColorBrush"
 					Storyboard.TargetProperty="Color" From="Red" To="SkyBlue" Duration="00:00:01"/>
                 <DoubleAnimation From="1" To="30" Duration="00:00:01"
 					Storyboard.TargetName="ballScaleTransform"
@@ -19,6 +21,12 @@
                 <DoubleAnimation  From="1" To="30" Duration="00:00:01"
 					Storyboard.TargetName="ballScaleTransform"
 					Storyboard.TargetProperty="ScaleY"/>
+            </Storyboard>
+            <Storyboard x:Key="rotationAnimation" x:Name="rotationAnimation" RepeatBehavior="Forever">
+                <DoubleAnimation From="0" To="360" Duration="00:00:01"
+                                         Storyboard.TargetName="ballRotateTransform"
+                                         Storyboard.TargetProperty="Angle">
+                </DoubleAnimation>
             </Storyboard>
         </Grid.Resources>
         <Menu>
@@ -52,24 +60,46 @@
                 <MenuItem Header="Slow" Click="SpeedSlow_click"/>
                 <MenuItem Header="Normal" Click="SpeedNormal_click"/>
                 <MenuItem Header="Fast" Click="SpeedFast_click"/>
+                <MenuItem Header="Slider">
+                    <Slider Name="speedSlider"  Margin="0, 0, 0, 0" 
+                          Width="100" Orientation="Horizontal" HorizontalAlignment="Left" 
+                          Value="1" Minimum="0.3" Maximum="3" 
+                          TickFrequency="0.1" Thumb.DragCompleted="sliderspeed_mousedown"/>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Colors">
                 <MenuItem Header="ColorDiagrm" Click="MenuItemColorDiagram_click"/>
                 <MenuItem Header="ColorPicker" Click="MenuItemColorPicker_click"/>
             </MenuItem>
-            <MenuItem Header="Form"/>
+            <MenuItem Header="Form">
+                <MenuItem Header="Ellipse" Click="FormBall_click"/>
+                <MenuItem Header="Retangle" Click="FormRetang_click"/>
+            </MenuItem>
             <MenuItem Header="Rotation"/>
         </Menu>
-        <Ellipse x:Name="myEllipse" Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
-            <Ellipse.Fill>
-                <SolidColorBrush x:Name="ballColorBrush" Color="Red" />
-            </Ellipse.Fill>
-            <Ellipse.RenderTransform>
+        <Canvas Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+            <Canvas  x:Name="myEllipse" Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                <Ellipse Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                    <Ellipse.Fill>
+                        <SolidColorBrush x:Name="ballColorBrush" Color="Red" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse x:Name="myEllipseSmall" Width="1" Height="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Fill="Black" Canvas.Top="5">
+
+                </Ellipse>
+            </Canvas>
+
+            <Rectangle x:Name="myRetangle" Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Rectangle.Fill>
+                    <SolidColorBrush x:Name="rectangleColorBrush" Color="Red" />
+                </Rectangle.Fill>
+            </Rectangle>
+            <Canvas.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform x:Name="ballScaleTransform"/>
+                    <ScaleTransform  x:Name="ballScaleTransform"/>
                     <RotateTransform x:Name="ballRotateTransform"/>
                 </TransformGroup>
-            </Ellipse.RenderTransform>
-        </Ellipse>
+            </Canvas.RenderTransform>
+        </Canvas>
     </Grid>
 </Window>
