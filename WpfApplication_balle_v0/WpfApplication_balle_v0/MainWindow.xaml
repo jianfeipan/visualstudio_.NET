@@ -7,7 +7,7 @@
         xmlns:CustomControls="clr-namespace:CustomControls;assembly=CustomControls" 
         x:Class="WpfApplication_balle_v0.MainWindow"
         mc:Ignorable="d"
-        Title="Jouer la balle" Height="400" Width="350">
+        Title="Jouer la balle" Height="500" Width="350">
     <Grid x:Name="mainGrid">
         <Grid.Resources>
             <Storyboard x:Key="animations" x:Name="animsations"  RepeatBehavior="Forever" AutoReverse="True" >
@@ -32,19 +32,6 @@
         <Menu>
             <MenuItem Header="actions">
                 <MenuItem Header="Start" Click="MenuItemStart_Click">
-                    <!--<MenuItem.Triggers>
-                        <EventTrigger RoutedEvent="MenuItem.Click">
-                            <BeginStoryboard x:Name="beginAnimations" Storyboard="{StaticResource animations}"/>
-                            <BeginStoryboard x:Name="beginAnimations2">
-                                <Storyboard RepeatBehavior="Forever">
-                                    <DoubleAnimation From="0" To="360" Duration="00:00:01"
-                                         Storyboard.TargetName="ballRotateTransform"
-                                         Storyboard.TargetProperty="Angle">
-                                    </DoubleAnimation>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </MenuItem.Triggers>-->
                 </MenuItem>
                 <MenuItem Header="Stop" Click="MenuItemStop_Click">
                     <!--<MenuItem.Triggers>
@@ -74,8 +61,8 @@
             <MenuItem Header="Form">
                 <MenuItem Header="Ellipse" Click="FormBall_click"/>
                 <MenuItem Header="Retangle" Click="FormRetang_click"/>
+                <MenuItem Header="Phen" Click="FormPhen_click"/>
             </MenuItem>
-            <MenuItem Header="Rotation"/>
         </Menu>
         <Canvas Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
             <Canvas  x:Name="myEllipse" Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
@@ -88,12 +75,12 @@
 
                 </Ellipse>
             </Canvas>
-
             <Rectangle x:Name="myRetangle" Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Rectangle.Fill>
                     <SolidColorBrush x:Name="rectangleColorBrush" Color="Red" />
                 </Rectangle.Fill>
             </Rectangle>
+            <Image x:Name="image" Width="10"   Source="phen1.PNG" Visibility="Hidden"/>
             <Canvas.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform  x:Name="ballScaleTransform"/>
@@ -101,5 +88,6 @@
                 </TransformGroup>
             </Canvas.RenderTransform>
         </Canvas>
+
     </Grid>
 </Window>

@@ -30,13 +30,14 @@ namespace WpfApplication_balle_v0
         Storyboard rotation;
         MyColorPicker colorPicker;
         double speedRadio = 1;
-        int currentshap = 0;//0:ball, 1:retangle
+        int currentshap = 0;//0:ball, 1:retangle 2 : Phen
         public MainWindow()
         {
             InitializeComponent();
             board = (Storyboard)mainGrid.FindResource("animations");
             rotation = (Storyboard)mainGrid.FindResource("rotationAnimation");
             myRetangle.Visibility = Visibility.Hidden;
+            image.Visibility = Visibility.Hidden;
         }
 
 
@@ -47,25 +48,33 @@ namespace WpfApplication_balle_v0
         }
         public void MenuItemStop_Click(object Sender, EventArgs e) {
             board.Stop(this);
+            rotation.Stop(this);
         }
 
         public void MenuItemColorDiagram_click(object Sender, EventArgs e) {
             ColorDialog cd = new ColorDialog();
-            if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
-                System.Drawing.Color color = cd.Color;             
-                board.Children[currentshap].SetValue(ColorAnimation.ToProperty, System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B));
+            if (currentshap != 3){//si c'est pas l'image, on va changer le couleur
+                if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    System.Drawing.Color color = cd.Color;
+                    board.Children[currentshap].SetValue(ColorAnimation.ToProperty, System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B));
+                }
+                board.Begin(this, true);
+                board.SetSpeedRatio(this, speedRadio);
             }
-            board.Begin(this, true);
-            board.SetSpeedRatio(this, speedRadio);
+
         }
 
         public void MenuItemColorPicker_click(object Sender, EventArgs e) {
             colorPicker = new MyColorPicker((Color)board.Children[0].GetValue(ColorAnimation.ToProperty));
-            if (colorPicker.ShowDialog() == true){
-                board.Children[currentshap].SetValue(ColorAnimation.ToProperty, colorPicker.colorPicker.Color);
-                board.Begin(this, true);
-                board.SetSpeedRatio(this, speedRadio);
-            }           
+            if (currentshap != 3){//si c'est pas l'image, on va changer le couleur
+                if (colorPicker.ShowDialog() == true)
+                {
+                    board.Children[currentshap].SetValue(ColorAnimation.ToProperty, colorPicker.colorPicker.Color);
+                    board.Begin(this, true);
+                    board.SetSpeedRatio(this, speedRadio);
+                }
+            }
         }
 
         public void MenuItemExit_click(object Sender, EventArgs e) {
@@ -97,20 +106,45 @@ namespace WpfApplication_balle_v0
         }
 
         public void FormBall_click(object Sender, EventArgs e) {
-            if (currentshap != 0)
-            {
-                currentshap = 0;
-                myEllipse.Visibility = Visibility.Visible;
-                myRetangle.Visibility = Visibility.Hidden;
-            }
+            changeVisibility(0);
         }
 
         public void FormRetang_click(object Sender, EventArgs e){
-            if (currentshap != 1)
-            {
-                currentshap = 1;
-                myEllipse.Visibility = Visibility.Hidden;
-                myRetangle.Visibility = Visibility.Visible;
+            changeVisibility(1);
+        }
+
+        public void FormPhen_click(object Sender, EventArgs e)
+        {
+            changeVisibility(2);
+        }
+
+        private void changeVisibility(int shap) {
+            if (currentshap != shap) {
+                if (shap == 0) {
+                    currentshap = 0;
+                    myEllipse.Visibility = Visibility.Visible;
+                    myRetangle.Visibility = Visibility.Hidden;
+                    image.Visibility = Visibility.Hidden;
+                    board.RepeatBehavior = RepeatBehavior.Forever;
+                    board.AutoReverse = true;
+                    board.Begin(this,true);
+                } else if (shap == 1) {
+                    currentshap = 1;
+                    myEllipse.Visibility = Visibility.Hidden;
+                    myRetangle.Visibility = Visibility.Visible;
+                    image.Visibility = Visibility.Hidden;
+                    board.RepeatBehavior = RepeatBehavior.Forever;
+                    board.AutoReverse = true;
+                    board.Begin(this, true);
+                } else{
+                    currentshap = 2;
+                    myEllipse.Visibility = Visibility.Hidden;
+                    myRetangle.Visibility = Visibility.Hidden;
+                    image.Visibility = Visibility.Visible;
+                    board.RepeatBehavior = new RepeatBehavior(1.0);
+                    board.AutoReverse = false;
+                    board.Begin(this, true);
+                }
             }
         }
 
