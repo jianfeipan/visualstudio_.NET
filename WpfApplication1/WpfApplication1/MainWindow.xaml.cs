@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApplication1
+namespace WpfApplication1_tp2
 {
     public partial class MainWindow : Window
     {
@@ -34,10 +34,7 @@ namespace WpfApplication1
         {
             foreach (Process p in processes)
             {
-                if (!p.HasExited)
-                {
                     p.Kill();
-                }
             }
         }
 
@@ -106,7 +103,7 @@ namespace WpfApplication1
             {
                 foreach (Process p in processes)
                 {
-                    textBlock.Text += " " + p.StartInfo.FileName.Split('\\').Last() + p.Id.ToString();
+                    textBlock.Text += " " + p.StartInfo.FileName.Split('\\').Last() +" pid: "+ p.Id.ToString();
                     textBlock.Inlines.Add(new LineBreak());
                 }
             }
@@ -137,5 +134,10 @@ namespace WpfApplication1
         {
             closAllProcesses();
         }
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        
     }
 }
