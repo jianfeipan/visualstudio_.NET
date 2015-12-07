@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace WpfApplication1
 {
-    /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         List<Process> processes;
@@ -29,9 +26,16 @@ namespace WpfApplication1
             processes = new List<Process>();
         }
 
-        private void mainClosing(object sender, CancelEventArgs e) {
-            foreach (Process p in processes) {
-                if (!p.HasExited){
+        public void mainClosing(object sender, CancelEventArgs e) {
+            closAllProcesses();
+        }
+
+        private void closAllProcesses()
+        {
+            foreach (Process p in processes)
+            {
+                if (!p.HasExited)
+                {
                     p.Kill();
                 }
             }
@@ -45,6 +49,11 @@ namespace WpfApplication1
                 ballProc.EnableRaisingEvents = true;// important !!!
                 ballProc.Exited += new EventHandler(processExisted);
                 processes.Add(ballProc);
+                this.Dispatcher.Invoke((Action)(() =>// multi thread to same UI element
+                {
+                    updateTextblock();
+                }));
+
             }
             else {
                 noMoreProcesses();
@@ -66,6 +75,10 @@ namespace WpfApplication1
                 premierProc.EnableRaisingEvents = true;// important !!!
                 premierProc.Exited += new EventHandler(processExisted);
                 processes.Add(premierProc);
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    updateTextblock();
+                }));
 
             }
             else
@@ -76,7 +89,53 @@ namespace WpfApplication1
 
         private void processExisted(object sender, EventArgs e)
         {
-            processes.Remove((Process)sender);
+            if (processes.Remove((Process)sender))
+            {
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    updateTextblock();
+                }));
+               
+            }         
+        }
+
+        private void updateTextblock() {
+            textBlock.Text = processes.Count() + " processes are running";
+            textBlock.Inlines.Add(new LineBreak());
+            if (processes.Count != 0)
+            {
+                foreach (Process p in processes)
+                {
+                    textBlock.Text += " " + p.StartInfo.FileName.Split('\\').Last() + p.Id.ToString();
+                    textBlock.Inlines.Add(new LineBreak());
+                }
+            }
+
+        }
+
+        private void CloseLast_click(object sender, RoutedEventArgs e){
+            processes.Last().Kill();
+        }
+
+        private void CloseLastBall_click(object sender, RoutedEventArgs e)
+        {
+            processes.FindLast(delegate (Process proc)
+            {
+                return proc.StartInfo.FileName.Split('\\').Last().Contains("Ball");
+            }).Kill();
+        }
+
+        private void CloseLastPremier_click(object sender, RoutedEventArgs e)
+        {
+            processes.FindLast(delegate (Process proc)
+            {
+                return proc.StartInfo.FileName.Split('\\').Last().Contains("premier");
+            }).Kill();
+        }
+
+        private void Closeall_click(object sender, RoutedEventArgs e)
+        {
+            closAllProcesses();
         }
     }
 }

@@ -7,8 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
         Closing="mainClosing">
+    
     <Grid>
-        <Button x:Name="ballButton" Content="ball.exe" HorizontalAlignment="Left" Margin="123,138,0,0" VerticalAlignment="Top" Width="75" Click="ballButton_Click"/>
-        <Button x:Name="premierButton" Content="premier.exe" HorizontalAlignment="Left" Margin="319,138,0,0" VerticalAlignment="Top" Width="75" Click="permierButton_Click"/>
+        <Menu>
+            <MenuItem Header="close">
+                <MenuItem Header="close last" Click="CloseLast_click"></MenuItem>
+                <MenuItem Header="close last ball" Click="CloseLastBall_click"></MenuItem>
+                <MenuItem Header="close last premier" Click="CloseLastPremier_click"></MenuItem>
+                <MenuItem Header="close all" Click="Closeall_click"></MenuItem>
+            </MenuItem>
+            
+        </Menu>
+        <Button x:Name="ballButton" Content="ball.exe" HorizontalAlignment="Left" Margin="116,66,0,0" VerticalAlignment="Top" Width="75" Click="ballButton_Click"/>
+        <Button x:Name="premierButton" Content="premier.exe" HorizontalAlignment="Left" Margin="116,137,0,0" VerticalAlignment="Top" Width="75" Click="permierButton_Click"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="319,53,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="156" Width="134"/>
     </Grid>
 </Window>
