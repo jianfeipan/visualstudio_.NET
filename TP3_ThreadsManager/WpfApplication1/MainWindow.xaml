@@ -1,0 +1,34 @@
+﻿<Window x:Class="TP3_Threads.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TP3_Threads"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525"
+        Closing="Window_Closing">
+    <Grid>
+        <Menu>
+            <MenuItem Header="start thread" >
+                <MenuItem Header="ballon" Click="ballStart_click"></MenuItem>
+                <MenuItem Header="premier" Click="premierStart_click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="pause/restart" Click="pause_restart_click">
+            </MenuItem>
+            <MenuItem Header="Close Thread" >
+                <MenuItem Header="Close last ball" Click="closeLastBall_click">
+                </MenuItem>
+                <MenuItem Header="Close last premier" Click="closeLastPremier_click">
+                </MenuItem>
+                <MenuItem Header="Close last" Click="closeLast_click">
+                </MenuItem>
+                <MenuItem Header="Close all" Click="closeAll_click">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Exit" Click="exit_click">
+            </MenuItem>
+        </Menu>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="24,45,0,0" TextWrapping="Wrap" Text="Thread information" VerticalAlignment="Top" Height="251" Width="468"/>
+
+    </Grid>
+</Window>

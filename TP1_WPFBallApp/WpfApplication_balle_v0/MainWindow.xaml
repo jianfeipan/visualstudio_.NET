@@ -1,0 +1,93 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication_balle_v0"
+        xmlns:CustomControls="clr-namespace:CustomControls;assembly=CustomControls" 
+        x:Class="WpfApplication_balle_v0.MainWindow"
+        mc:Ignorable="d"
+        Title="Jouer la balle" Height="500" Width="350">
+    <Grid x:Name="mainGrid">
+        <Grid.Resources>
+            <Storyboard x:Key="animations" x:Name="animsations"  RepeatBehavior="Forever" AutoReverse="True" >
+                <ColorAnimation x:Name="colorAnimBall" Storyboard.TargetName="ballColorBrush"
+					Storyboard.TargetProperty="Color" From="Red" To="SkyBlue" Duration="00:00:01"/>
+                <ColorAnimation x:Name="colorAnimRetang" Storyboard.TargetName="rectangleColorBrush"
+					Storyboard.TargetProperty="Color" From="Red" To="SkyBlue" Duration="00:00:01"/>
+                <DoubleAnimation From="1" To="30" Duration="00:00:01"
+					Storyboard.TargetName="ballScaleTransform"
+					Storyboard.TargetProperty="ScaleX"/>
+                <DoubleAnimation  From="1" To="30" Duration="00:00:01"
+					Storyboard.TargetName="ballScaleTransform"
+					Storyboard.TargetProperty="ScaleY"/>
+            </Storyboard>
+            <Storyboard x:Key="rotationAnimation" x:Name="rotationAnimation" RepeatBehavior="Forever">
+                <DoubleAnimation From="0" To="360" Duration="00:00:01"
+                                         Storyboard.TargetName="ballRotateTransform"
+                                         Storyboard.TargetProperty="Angle">
+                </DoubleAnimation>
+            </Storyboard>
+        </Grid.Resources>
+        <Menu>
+            <MenuItem Header="actions">
+                <MenuItem Header="Start" Click="MenuItemStart_Click">
+                </MenuItem>
+                <MenuItem Header="Stop" Click="MenuItemStop_Click">
+                    <!--<MenuItem.Triggers>
+                        <EventTrigger RoutedEvent="MenuItem.Click">
+                            <StopStoryboard BeginStoryboardName="beginAnimations"/>
+                        </EventTrigger>
+                    </MenuItem.Triggers> -->
+                </MenuItem>
+                <MenuItem Header="Exit" Click="MenuItemExit_click"/>
+
+            </MenuItem>
+            <MenuItem Header="Speed">
+                <MenuItem Header="Slow" Click="SpeedSlow_click"/>
+                <MenuItem Header="Normal" Click="SpeedNormal_click"/>
+                <MenuItem Header="Fast" Click="SpeedFast_click"/>
+                <MenuItem Header="Slider">
+                    <Slider Name="speedSlider"  Margin="0, 0, 0, 0" 
+                          Width="100" Orientation="Horizontal" HorizontalAlignment="Left" 
+                          Value="1" Minimum="0.3" Maximum="3" 
+                          TickFrequency="0.1" Thumb.DragCompleted="sliderspeed_mousedown"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Colors">
+                <MenuItem Header="ColorDiagrm" Click="MenuItemColorDiagram_click"/>
+                <MenuItem Header="ColorPicker" Click="MenuItemColorPicker_click"/>
+            </MenuItem>
+            <MenuItem Header="Form">
+                <MenuItem Header="Ellipse" Click="FormBall_click"/>
+                <MenuItem Header="Retangle" Click="FormRetang_click"/>
+                <MenuItem Header="Phen" Click="FormPhen_click"/>
+            </MenuItem>
+        </Menu>
+        <Canvas Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+            <Canvas  x:Name="myEllipse" Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                <Ellipse Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                    <Ellipse.Fill>
+                        <SolidColorBrush x:Name="ballColorBrush" Color="Red" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse x:Name="myEllipseSmall" Width="1" Height="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Fill="Black" Canvas.Top="5">
+
+                </Ellipse>
+            </Canvas>
+            <Rectangle x:Name="myRetangle" Width="10" Height="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Rectangle.Fill>
+                    <SolidColorBrush x:Name="rectangleColorBrush" Color="Red" />
+                </Rectangle.Fill>
+            </Rectangle>
+            <Image x:Name="image" Width="10"   Source="phen1.PNG" Visibility="Hidden"/>
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform  x:Name="ballScaleTransform"/>
+                    <RotateTransform x:Name="ballRotateTransform"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+        </Canvas>
+
+    </Grid>
+</Window>

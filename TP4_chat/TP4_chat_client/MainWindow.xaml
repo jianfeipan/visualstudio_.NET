@@ -1,0 +1,30 @@
+﻿<Window x:Class="TP4_chat_client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TP4_chat_client"
+        mc:Ignorable="d"
+              Title="MainWindow" Height="500" Width="700">
+    <Grid Background="DarkGray">
+        <Menu>
+            <MenuItem Header="Login" Click="login_Click"></MenuItem>
+            <MenuItem Header="Disconnect" Click="disconnect_Click"></MenuItem>
+        </Menu>
+        <Label Content="port number :" Margin="381,69,226,369" Panel.ZIndex="1"></Label>
+        <Label Content="Login :" Margin="400,166,231,272" Panel.ZIndex="1"></Label>
+        <Border Margin="0,20,0,0" Background="DarkGray">
+            <Button x:Name="send_button" Click="send_button_Click" Content="send" Margin="416,336,144,64"/>
+        </Border>
+        <TextBlock x:Name="readMsg_textBlock" Margin="10,42,316,163" Background="White"/>
+
+        <TextBox x:Name="inputMsg_textBox" Margin="10,344,316,45" Background="White"/>
+
+        <TextBlock x:Name="menmbers_textBlock" Margin="585,42,10,45" Background="White"/>
+
+        <TextBox x:Name="portNumber_textBox" Margin="466,69,129,369" Background="White"/>
+
+        <TextBox x:Name="login_textBox" Margin="466,166,129,272" Background="White"/>
+
+    </Grid>
+</Window>
