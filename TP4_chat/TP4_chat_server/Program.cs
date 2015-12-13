@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Remoting;
@@ -11,25 +12,30 @@ using TP4_chat_interface;
 
 namespace TP4_chat_server
 {
-    class Server : MarshalByRefObject, TP4_chat_interface.RemoteMethods
+    class Server : MarshalByRefObject, RemoteMethods
     {
-        Dictionary<string,User> members = new Dictionary<string, User>();
+        Dictionary<string,User> members = new Dictionary<string, User>();    
+        //static public event CancelEventHandler Closing;
         static void Main(string[] args)
         {
-            // Création d'un nouveau canal pour le transfert des données via un port 
+            //Closing += new CancelEventHandler(closeChannels);
+
             TcpChannel canal = new TcpChannel(12345);
 
-            // Le canal ainsi défini doit être Enregistré dans l'annuaire
             ChannelServices.RegisterChannel(canal,false);
 
-            // Démarrage du serveur en écoute sur objet en mode Singleton
-            // Publication du type avec l'URI et son mode 
             RemotingConfiguration.RegisterWellKnownServiceType(
                 typeof(Server), "Server", WellKnownObjectMode.Singleton);
 
             Console.WriteLine("Server is ready :");
-            // pour garder la main sur la console
-            Console.ReadLine();
+
+            if (Console.ReadLine()=="exit") {
+                Environment.Exit(0);
+            }
+        }
+        public override object InitializeLifetimeService()
+        {
+            return null ;
         }
 
         public bool disconnect(string login)
@@ -38,6 +44,10 @@ namespace TP4_chat_server
             {
                 Console.WriteLine("Disconnect : " + login);
                 members.Remove(login);
+                Message m = new ServerMessage(members.Keys.ToList<string>());
+                foreach (User  u in members.Values.ToList()) {
+                    u.getMq().Enqueue(m);
+                }
                 return true;
             }
             else
@@ -55,30 +65,51 @@ namespace TP4_chat_server
             } else {
                 members.Add(login, new User(login, portNumber));
                 Console.WriteLine("login : " + login + " : "+portNumber);
+                Message m = new ServerMessage(members.Keys.ToList<string>());
+                foreach (User u in members.Values.ToList())
+                {
+                    u.getMq().Enqueue(m);
+                }
                 return true;
             }
         }
 
-        public Message recvMessage()
-        {
-            throw new NotImplementedException();
-        }
-
         public bool sendMessage(Message m)
         {
-            throw new NotImplementedException();
+            foreach (User u in members.Values.ToList())
+            {
+                u.getMq().Enqueue(m);
+            }
+            return true;
+        }
+
+        public Message recvMsg(string client)
+        {
+            Queue<Message> mq = members[client].getMq();
+            Message m;
+            while (true) {
+                if (mq.Count() !=0 ){
+                    return mq.Dequeue();
+                }
+                else {
+                    System.Threading.Thread.Sleep(500);
+                }
+            }
         }
     }
 
     public class User {
         private string login;
         private int port;
-        public User(string login,int port) {
-            this.login = login;
-            this.port = port;
-        }
+        private Queue<Message> msgQ = new Queue<Message>();
 
+        public User(string login, int port) 
+        {
+            this.login = login;
+            this.port = port;          
+        }
         public string getLogin() { return login; }
+        public Queue<Message> getMq() { return msgQ; }
 
         public int getPort() { return port; }
 

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TP4_chat_client"
         mc:Ignorable="d"
-              Title="MainWindow" Height="500" Width="700">
+              Title="MainWindow" Height="500" Width="700"
+        Closing="Window_Closing">
     <Grid Background="DarkGray">
         <Menu>
             <MenuItem Header="Login" Click="login_Click"></MenuItem>
@@ -16,13 +17,19 @@
         <Border Margin="0,20,0,0" Background="DarkGray">
             <Button x:Name="send_button" Click="send_button_Click" Content="send" Margin="416,336,144,64"/>
         </Border>
-        <TextBlock x:Name="readMsg_textBlock" Margin="10,42,316,163" Background="White"/>
-
-        <TextBox x:Name="inputMsg_textBox" Margin="10,344,316,45" Background="White"/>
-
-        <TextBlock x:Name="menmbers_textBlock" Margin="585,42,10,45" Background="White"/>
-
-        <TextBox x:Name="portNumber_textBox" Margin="466,69,129,369" Background="White"/>
+        <ScrollViewer x:Name="readMsg_scroller" Margin="10,42,316,163" VerticalScrollBarVisibility="Auto">
+            <TextBlock x:Name="readMsg_textBlock"  Background="White" TextWrapping="Wrap"/>
+        </ScrollViewer>
+        
+        <ScrollViewer Margin="10,344,316,45" VerticalScrollBarVisibility="Auto">
+            <TextBox x:Name="inputMsg_textBox"  Background="White" KeyDown="inputMsg_textBox_KeyDown" TextWrapping="Wrap"/>
+        </ScrollViewer>
+        
+        <ScrollViewer Margin="585,42,10,45" VerticalScrollBarVisibility="Auto">
+            <TextBlock x:Name="members_textBlock"  Background="White" />
+        </ScrollViewer>
+        
+        <TextBox x:Name="portNumber_textBox" Margin="466,69,129,369" Background="White" Text ="4444"/>
 
         <TextBox x:Name="login_textBox" Margin="466,166,129,272" Background="White"/>
 

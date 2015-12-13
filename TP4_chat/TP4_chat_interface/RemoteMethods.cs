@@ -14,16 +14,21 @@ namespace TP4_chat_interface
         bool login(int portNumber, string login);
         bool disconnect(string login);
         bool sendMessage(Message m);
-        Message recvMessage();
-    }
 
-    public class Message {
+        Message recvMsg(string login);
+    }
+    //[SerializableAttribute]
+    //[ComVisibleAttribute(true)]
+    [Serializable]
+    public class Message
+    {
         private string sender;
         public Message(string s) { sender = s; }
 
         public string getSender() { return sender; }
     }
 
+    [Serializable]
     public class ServerMessage : Message {
         private List<string> members;
         public ServerMessage(List<string> list) : base("server") {
@@ -33,6 +38,7 @@ namespace TP4_chat_interface
         public List<string> getMembers() { return members; }
     }
 
+    [Serializable]
     public class ClientMessage : Message {
         private string msg;
         public ClientMessage(string login, string message):base(login)
@@ -42,6 +48,13 @@ namespace TP4_chat_interface
         public string getMsg() { return msg; }
     }
 
+    public class CloseMessage : Message
+    {
+        public CloseMessage(string login) : base(login)
+        {
+        }
+    }
+    /*
     [SerializableAttribute]
     [ComVisibleAttribute(true)]
     public class UserNodeFoundException : ServerException, ISerializable
@@ -62,5 +75,5 @@ namespace TP4_chat_interface
         }
 
         UserAlreadyExistedException(string error) : base(error) { }
-    }
+    }*/
 }
