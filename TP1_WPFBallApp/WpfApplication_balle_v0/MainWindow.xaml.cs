@@ -21,9 +21,7 @@ using System.Diagnostics;
 
 namespace WpfApplication_balle_v0
 {
-    /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
-    /// </summary>
+    /// Author : Jianfei PAN
     public partial class MainWindow : Window
     {
         Storyboard board;

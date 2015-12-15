@@ -12,6 +12,9 @@ using TP4_chat_interface;
 
 namespace TP4_chat_server
 {
+    /// <summary>
+    /// Author : Jianfei PAN
+    /// </summary>
     class Server : MarshalByRefObject, RemoteMethods
     {
         Dictionary<string,User> members = new Dictionary<string, User>();    
@@ -64,7 +67,7 @@ namespace TP4_chat_server
                 return false;
             } else {
                 members.Add(login, new User(login, portNumber));
-                Console.WriteLine("login : " + login + " : "+portNumber);
+                Console.WriteLine("login : " + login);
                 Message m = new ServerMessage(members.Keys.ToList<string>());
                 foreach (User u in members.Values.ToList())
                 {

@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace TP4_chat_interface
 {
+    /// <summary>
+    /// Author : Jianfei PAN
+    /// </summary>
     public interface RemoteMethods
     {
         bool login(int portNumber, string login);

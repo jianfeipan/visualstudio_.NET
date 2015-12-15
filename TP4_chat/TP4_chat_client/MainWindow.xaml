@@ -11,6 +11,7 @@
         <Menu>
             <MenuItem Header="Login" Click="login_Click"></MenuItem>
             <MenuItem Header="Disconnect" Click="disconnect_Click"></MenuItem>
+            <MenuItem Header="Exit" Click="ExitItem_Click"></MenuItem>
         </Menu>
         <Label Content="port number :" Margin="381,69,226,369" Panel.ZIndex="1"></Label>
         <Label Content="Login :" Margin="400,166,231,272" Panel.ZIndex="1"></Label>

@@ -89,13 +89,6 @@ namespace TP4_chat_client
         {
             if (isLogin)
             {
-                login = login_textBox.Text.ToString();
-                if (login == "")
-                {
-                    MessageBox.Show("please input login");
-                }
-                else
-                {
                     /*
                     try
                     {
@@ -119,7 +112,6 @@ namespace TP4_chat_client
                     {
                         MessageBox.Show("Cannot find " + login + "in the server");
                     }
-                }
             }
             else {
                 MessageBox.Show("Already disconnected");
@@ -230,6 +222,12 @@ namespace TP4_chat_client
             {
                 sendClientMessage();
             }
+        }
+
+        private void ExitItem_Click(object sender, RoutedEventArgs e)
+        {
+            remoteMethods.disconnect(login);
+            Environment.Exit(0);
         }
     }
 

@@ -18,6 +18,9 @@ using System.Windows.Shapes;
 
 namespace WpfApplication1_tp2
 {
+    /// <summary>
+    /// author : Jianfei PAN
+    /// </summary>
     public partial class MainWindow : Window
     {
         [DllImport("user32.dll")]

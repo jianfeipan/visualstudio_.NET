@@ -20,7 +20,7 @@ using System.Windows.Forms;
 namespace TP3_Threads
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Author : Jianfei PAN
     /// </summary>
     public partial class MainWindow : Window
     { 
@@ -158,7 +158,7 @@ namespace TP3_Threads
 #pragma warning restore CS0618 // Le type ou le membre est obsolète
                 }
                 threads.Remove(m);
-
+                m.getThread().Abort();
                 if (threads.Count() == 0) pause = false;
                 return true;        
             }
